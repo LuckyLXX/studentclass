@@ -1,0 +1,171 @@
+.nav-1 {
+    background-color: #fff;
+}
+
+.nav-2 {
+    margin: 0 10%;
+    height: 100px;
+    background-color: #fff;
+}
+
+.left {
+    background-color: #1E9FFF;
+}
+
+.h50 {
+    height: 50px;
+    font-family: sans-serif;
+}
+
+.status {
+    height: 100%;
+    margin-right: 16px;
+}
+
+.status > span {
+    text-align: center;
+    width: 142px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 24px;
+    border-radius: 5px;
+    background: #a9d96c;
+    color: #ffffff;
+    font-weight: bolder;
+    margin-top: 20px;
+    display: block;
+}
+
+.span1 {
+    margin-left: 19px;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    color: #727171;
+}
+
+.span1 > span {
+    color: #2ca2fe;
+    margin: 0 6px;
+}
+
+.kaibiao {
+    padding-top: 20px;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Microsoft YaHei";
+}
+
+.countDown {
+    height: 28px;
+    line-height: 28px;
+    margin-top: 10px;
+}
+
+.countDown > span {
+    padding: 2px 3px;
+    margin-right: -2px;
+    border-radius: 3px;
+}
+
+.kbdjs {
+    font-size: 16px;
+    background: none;
+    color: #727171;
+}
+
+.kbdjs > span {
+    color: #2ca2fe;
+    margin: 0 6px;
+}
+
+.div3 {
+    height: 100px;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #727171;
+    font-weight: bold;
+    margin-left: 13px;
+}
+
+.div3 > div {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-left: 1px solid #eee;
+    padding: 10px 0 10px 15px;
+}
+
+.div3 > div > span > span {
+    color: #2ca2fe;
+}
+
+.right {
+    height: 500px;
+}
+
+.margin10 {
+    margin: 20px 10%;
+    background-color: #1E9FFF;
+    /*height: 100%;*/
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: center;
+    border-bottom: 1px dashed #CCCCCC;
+    padding-bottom: 50px;
+    background-color: #ffffff;
+}
+
+.content {
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.announcement {
+    display: block;
+    background-color: #FFB800;
+    text-align: center;
+    width: auto;
+    height: 70px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 70px;
+    color: white;
+}
+
+.announcement:hover{
+    color: #1c8adb;
+}
+
+.upLoadTbFile{
+    display: block;
+    background-color:#FFB800;
+    text-align: center;
+    width: auto;
+    height: 70px;
+    border-radius: 5px;
+    font-size: 15px;
+    line-height: 70px;
+    color: white;
+}
+.upLoadTbFile:hover{
+    color: #5FB878;
+}
+
+.foot {
+    text-align: center;
+}
+
+.baoming{
+    display: inline-block;
+    width: 130px;
+    height: 45px;
+    line-height: 45px;
+    background-color: #009688;
+    border-radius: 10px;
+}
+.baoming>a{
+    color: #ffffff;
+}
+

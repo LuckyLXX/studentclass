@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet"/>
+    <link th:href="@{/css/tool.css}" rel="stylesheet"/>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>详细信息表格</legend>
+    </fieldset>
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>课程Id</th>
+            <th>课程名称</th>
+            <th>建课老师</th>
+            <th>课程资源总数</th>
+            <th>作业库作业数</th>
+            <th>题库试题数</th>
+            <th>学生总数</th>
+            <th>PV总数</th>
+            <th>作业完成数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${classAndDetail.classDetail.courseId}">贤心</td>
+            <td th:text="${classAndDetail.classDetail.courseName}">2016-11-29</td>
+            <td th:text="${classAndDetail.classDetail.stmanName}">2016-11-29</td>
+            <td id="allNum" th:text="${classAndDetail.classInfo.allNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.taskNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.testNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.studentNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.pvNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.jobFinish}">2016-11-29</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <table class="layui-table">
+        <thead>
+        <tr>
+            <th>作业均分</th>
+            <th>考试数</th>
+            <th>考试完成度</th>
+            <th>考试均分</th>
+            <th>作业参与数</th>
+            <th>考试参与数</th>
+            <th>互动数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${classAndDetail.classInfo.jobGrade}">贤心</td>
+            <td th:text="${classAndDetail.classInfo.exam}">2016-11-29</td>
+            <td id="examFinish" th:text="${classAndDetail.classInfo.examFinish}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.examGrade}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.jobInNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.examInNum}">2016-11-29</td>
+            <td th:text="${classAndDetail.classInfo.courseInteract}">2016-11-29</td>
+        </tr>
+        </tbody>
+    </table>
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>相关评价</legend>
+    </fieldset>
+
+    <button type="button" id="pj" class="layui-btn" style="margin-bottom: 10px">点击评价</button>
+
+    <textarea style="height: 250px" id="text" name="" required lay-verify="required" placeholder="点击评价将会生成系统评价，个人也可以进行评价补充" class="layui-textarea"></textarea>
+</div>
+</body>
+<script>
+    layui.use(['jquery','layer'],function () {
+        var $ = layui.jquery,
+            layer = layui.layer;
+
+        var examFinish = $("#examFinish").val().replace("%","")
+        var text = $("#text")
+        var count = 0;
+        $("#pj").click(function () {
+            if(count < 1){
+                if(examFinish <= 60){
+                    text.append("系统评价：该课程学生弃考率过高\n")
+                }
+
+                if($("#allNum").val() < 500){
+                    text.append("系统评价：该课程参考文件过少,资源较少\n")
+                }
+            }
+            count++;
+
+        })
+
+    })
+</script>
+</html>
