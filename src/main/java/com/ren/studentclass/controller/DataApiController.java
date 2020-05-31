@@ -2,9 +2,11 @@ package com.ren.studentclass.controller;
 
 import com.ren.studentclass.dto.ClassAndDetail;
 import com.ren.studentclass.dto.ClassDTO;
+import com.ren.studentclass.model.ClassDetail;
 import com.ren.studentclass.service.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,6 +50,20 @@ public class DataApiController {
         ClassDTO classDTO = new ClassDTO();
         classDTO.setCode(0);
         classDTO.setMsg("language");
+        classDTO.setData(classAndDetails);
+        classDTO.setCount(classAndDetails.size());
+
+        return classDTO;
+    }
+
+    @GetMapping("/teacher_Detail")
+    @ResponseBody
+    public ClassDTO teacherBamJump(String teacherName){
+
+       List<ClassAndDetail> classAndDetails = classService.selectByTeacherName(teacherName);
+        ClassDTO classDTO = new ClassDTO();
+        classDTO.setCode(0);
+        classDTO.setMsg("yes");
         classDTO.setData(classAndDetails);
         classDTO.setCount(classAndDetails.size());
 

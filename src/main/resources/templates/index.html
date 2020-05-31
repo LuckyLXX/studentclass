@@ -18,8 +18,23 @@
             margin-bottom: 15px;
         }
     </style>
+
+<!--    <script>-->
+<!--        var number = 1;-->
+<!--        function fun22() {-->
+<!--            number++ ;-->
+<!--            if(number > 5 )-->
+<!--                number = 1;-->
+<!--        }-->
+<!--        var img = document.getElementById("id");-->
+<!--        img.src = "/img/banner_"+number+".jpg";-->
+<!--        setInterval(fun22,6000)-->
+<!--    </script>-->
+
 </head>
 <body>
+
+<!--    <img id="img" src="/img/banner_1.jpg" windth="100%">-->
 
 <form class="layui-form" action="/login" method="get">
     <div class="layui-form-item">
@@ -37,14 +52,35 @@
             <input type="password" name="password" placeholder="请输入密码" autocomplete="off" class="layui-input" required>
         </div>
     </div>
+<!--    <div class="layui-form-item">-->
+<!--        <div class="layui-input-block">-->
+<!--            <span class="decrib">验证码：</span>-->
+<!--            <input type="text" name="verify" placeholder="请输入验证码" autocomplete="off" class="layui-input" required>-->
+<!--        </div>-->
+<!--    </div>-->
+
 
     <div class="layui-form-item">
         <div class="layui-input-block">
             <button class="layui-btn layui-btn-fluid" type="submit">登 录</button>
         </div>
     </div>
+    </table>
+
+    <div class="layui-form-item" style="text-align: center">
+        <div class="layui-input-block">
+            <input type="radio" name="userName" value="0" title="admin" checked="">
+            <input type="radio" name="userName" value="1" title="academy">
+            <input type="radio" name="userName" value="2" title="teacher">
+        </div>
+    </div>
 </form>
 </body>
+
+
+
+
+
 <script>
     layui.use(['layer','form'], function(){
         var layer = layui.layer,

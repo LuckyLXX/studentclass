@@ -22,6 +22,11 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
+    public User selectByUserId(Integer userId) {
+        User user = userDao.selectByPrimaryKey(userId);
+        return user;
+    }
+
     public User selectUser(String account ,String password){
 
         UserExample userExample = new UserExample();
@@ -29,5 +34,14 @@ public class UserService {
         List<User> users = userDao.selectByExample(userExample);
 
         return users.get(0);
+    }
+
+    public void updatePassword(Integer userId, String password) {
+
+        User user = new User();
+        user.setId(userId);
+        user.setPassword(password);
+
+        userDao.updateByPrimaryKeySelective(user);
     }
 }

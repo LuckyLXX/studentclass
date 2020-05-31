@@ -14,20 +14,20 @@
     <div class="layui-header">
         <a href="/"> <div class="layui-logo">评价系统</div></a>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="">修改密码</a></li>
+        <ul class="layui-nav layui-layout-left" id="nav1">
+            <li class="layui-nav-item"><a th:href="@{'/alter_mm/'+${user.id}}">修改密码</a></li>
             <li class="layui-nav-item"><a href="">添加账户</a></li>
-<!--            <li class="layui-nav-item">-->
-<!--                <a href="javascript:;">其它系统</a>-->
-<!--                <dl class="layui-nav-child">-->
-<!--                    <dd><a href="">邮件管理</a></dd>-->
-<!--                    <dd><a href="">消息管理</a></dd>-->
-<!--                    <dd><a href="">授权管理</a></dd>-->
-<!--                </dl>-->
-<!--            </li>-->
+            <!--            <li class="layui-nav-item">-->
+            <!--                <a href="javascript:;">其它系统</a>-->
+            <!--                <dl class="layui-nav-child">-->
+            <!--                    <dd><a href="">邮件管理</a></dd>-->
+            <!--                    <dd><a href="">消息管理</a></dd>-->
+            <!--                    <dd><a href="">授权管理</a></dd>-->
+            <!--                </dl>-->
+            <!--            </li>-->
         </ul>
 
-<!--            <<button id = "closeBtn" ,type="button" class="layui-btn layui-btn-danger",style="padding-right:>关闭网页</button>-->
+        <!--            <<button id = "closeBtn" ,type="button" class="layui-btn layui-btn-danger",style="padding-right:>关闭网页</button>-->
     </div>
     <!--head-->
 
@@ -35,11 +35,7 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test" id="nav">
-                <li class="layui-nav-item"><a href="/languages_academy">外国语学院</a></li>
-                <li class="layui-nav-item"><a href="/computer_academy">计算机学院</a></li>
-<!--                <li class="layui-nav-item"><a href="/cailiao_academy">材料学院</a></li>-->
-                <li class="layui-nav-item"><a href="/shuli_academy">数理学院</a></li>
-                <li class="layui-nav-item"><a href="/mks_academy">马克思主义学院</a></li>
+                <li class="layui-nav-item"><a th:href="@{'/teacher_bam_jump/'+${user.teacherName}}" th:text="${user.teacherName}+'的课程'">外国语学院</a></li>
             </ul>
         </div>
     </div>
@@ -74,6 +70,13 @@
 
         $(document).ready(function () {
             $("#nav>li>a").click(function (e) {
+                e.preventDefault();
+                $('#iframeMain').attr("src", $(this).attr("href"));
+            });
+        });
+
+        $(document).ready(function () {
+            $("#nav1>li>a").click(function (e) {
                 e.preventDefault();
                 $('#iframeMain').attr("src", $(this).attr("href"));
             });

@@ -15,5 +15,11 @@ public class User implements Serializable {
 
     private String password;
 
+    private Integer status;
+
+    private String belongAcademy;
+
+    private String teacherName;
+
     private static final long serialVersionUID = 1L;
 }

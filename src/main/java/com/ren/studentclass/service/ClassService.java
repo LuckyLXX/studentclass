@@ -68,4 +68,33 @@ public class ClassService {
 
         return classAndDetails;
     }
+
+    public List<ClassAndDetail> selectByTeacherName(String teacherName) {
+
+        ClassDetailExample classDetailExample = new ClassDetailExample();
+        classDetailExample.createCriteria().andStmanNameEqualTo(teacherName);
+
+        List<ClassDetail> classDetails = classDetailDao.selectByExample(classDetailExample);
+        List<ClassAndDetail> classAndDetails = new ArrayList<>();
+        for (ClassDetail classDetail : classDetails) {
+
+            ClassInfo classInfo = classInfoDao.selectByPrimaryKey(classDetail.getCourseId());
+            ClassAndDetail classAndDetail = new ClassAndDetail();
+            classAndDetail.setClassDetail(classDetail);
+            classAndDetail.setClassInfo(classInfo);
+            classAndDetails.add(classAndDetail);
+        }
+
+        return classAndDetails;
+
+    }
+
+    public List<ClassDetail> selectClassDetailByTeacherName(String teacherName) {
+        ClassDetailExample classDetailExample = new ClassDetailExample();
+        classDetailExample.createCriteria().andStmanNameEqualTo(teacherName);
+
+        List<ClassDetail> classDetails = classDetailDao.selectByExample(classDetailExample);
+
+        return classDetails;
+    }
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet"/>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <link th:href="@{/css/tool.css}" rel="stylesheet"/>
+    <script th:src="@{/layui/layui.js}"></script>
+</head>
+<style>
+    .layui-form {width:20%;height:20%;margin:0 auto;margin-top:10%;padding:15px 28px 0px;background:#fff;}
+
+</style>
+<script src="/layui/layui.js"></script>
+<body>
+<div style="margin: 0 auto">
+    <form class="layui-form" th:action="@{'/mm_modify/'+${user.id}}">
+        <div class="layui-form-item" >
+            <div class="layui-input-inline" style="width: 275px">
+                <input type="password" name="password" required lay-verify="required" placeholder="新密码"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+<!--        <div class="layui-form-item">-->
+<!--            <label class="layui-form-label">选择框</label>-->
+<!--            <div class="layui-input-block">-->
+<!--                <select name="city" lay-verify="required">-->
+<!--                    <option value=""></option>-->
+<!--                    <option value="0">北京</option>-->
+<!--                    <option value="1">上海</option>-->
+<!--                    <option value="2">广州</option>-->
+<!--                    <option value="3">深圳</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-form-item">-->
+<!--            <label class="layui-form-label">复选框</label>-->
+<!--            <div class="layui-input-block">-->
+<!--                <input type="checkbox" name="like[write]" title="校管理员">-->
+<!--                <input type="checkbox" name="like[read]" title="院管理员" checked>-->
+
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        div class="layui-form-item">-->
+<!--        <label class="layui-form-label">选择学院</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <input type="checkbox" name="like[write]" title="计算机">-->
+<!--            <input type="checkbox" name="like[read]" title="外国语" checked>-->
+<!--            <input type="checkbox" name="like[read]" title="数理" checked>-->
+<!--            <input type="checkbox" name="like[read]" title="材料" checked>-->
+<!--            <input type="checkbox" name="like[read]" title="马克思" checked>-->
+
+<!--        </div>-->
+<!--        <div class="layui-form-mid layui-word-aux">-->
+<!--            <校管理员则不选></校管理员则不选>-->
+<!--        </div>-->
+<!--    <div class="layui-form-item layui-form-text">-->
+<!--        <label class="layui-form-label">文本域</label>-->
+<!--        <div class="layui-input-block">-->
+<!--            <textarea name="desc" placeholder="请输入内容" class="layui-textarea"></textarea>-->
+<!--        </div>-->
+<!--    </div>-->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    //Demo
+    layui.use(['form','layer'], function () {
+        var form = layui.form,
+        layer =layui.layer;
+
+        //监听提交
+        form.on('submit(formDemo)',function () {
+            layer.msg("修改密码成功")
+        })
+
+    });
+</script>
+</body>
+</html>

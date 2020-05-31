@@ -5,6 +5,9 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="account" jdbcType="VARCHAR" property="account" />
     <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="belong_academy" jdbcType="VARCHAR" property="belongAcademy" />
+    <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, account, `password`
+    id, account, `password`, `status`, belong_academy, teacher_name
   </sql>
   <select id="selectByExample" parameterType="com.ren.studentclass.model.UserExample" resultMap="BaseResultMap">
     select
@@ -98,8 +101,10 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ren.studentclass.model.User" useGeneratedKeys="true">
-    insert into user (account, `password`)
-    values (#{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    insert into user (account, `password`, `status`, 
+      belong_academy, teacher_name)
+    values (#{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{belongAcademy,jdbcType=VARCHAR}, #{teacherName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ren.studentclass.model.User" useGeneratedKeys="true">
     insert into user
@@ -110,6 +115,15 @@
       <if test="password != null">
         `password`,
       </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="belongAcademy != null">
+        belong_academy,
+      </if>
+      <if test="teacherName != null">
+        teacher_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="account != null">
@@ -117,6 +131,15 @@
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="belongAcademy != null">
+        #{belongAcademy,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        #{teacherName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -138,6 +161,15 @@
       <if test="record.password != null">
         `password` = #{record.password,jdbcType=VARCHAR},
       </if>
+      <if test="record.status != null">
+        `status` = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.belongAcademy != null">
+        belong_academy = #{record.belongAcademy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.teacherName != null">
+        teacher_name = #{record.teacherName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -147,7 +179,10 @@
     update user
     set id = #{record.id,jdbcType=INTEGER},
       account = #{record.account,jdbcType=VARCHAR},
-      `password` = #{record.password,jdbcType=VARCHAR}
+      `password` = #{record.password,jdbcType=VARCHAR},
+      `status` = #{record.status,jdbcType=INTEGER},
+      belong_academy = #{record.belongAcademy,jdbcType=VARCHAR},
+      teacher_name = #{record.teacherName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -161,13 +196,25 @@
       <if test="password != null">
         `password` = #{password,jdbcType=VARCHAR},
       </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="belongAcademy != null">
+        belong_academy = #{belongAcademy,jdbcType=VARCHAR},
+      </if>
+      <if test="teacherName != null">
+        teacher_name = #{teacherName,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ren.studentclass.model.User">
     update user
     set account = #{account,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR}
+      `password` = #{password,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      belong_academy = #{belongAcademy,jdbcType=VARCHAR},
+      teacher_name = #{teacherName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
